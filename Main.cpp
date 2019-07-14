@@ -5,7 +5,6 @@ using namespace web;
 using namespace http;
 using namespace utility;
 using namespace http::experimental::listener;
-using namespace std;
 
 std::unique_ptr<MyServer> g_http;
 
