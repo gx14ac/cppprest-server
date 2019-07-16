@@ -33,7 +33,7 @@ void MyServer::handle_delete(http_request message)
 {
 	ucout << message.to_string() << endl;
 	message.reply(status_codes::OK);
-}
+};
 
 void MyServer::handle_put(http_request message)
 {

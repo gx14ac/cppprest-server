@@ -17,6 +17,7 @@ void on_initialize(const utility::string_t& address)
 
     auto addr = uri.to_uri().to_string();
 	g_http = std::unique_ptr<MyServer>(new MyServer(addr));
+
 	g_http->open().wait();
     
     ucout << utility::string_t(U("Listening for requests at: ")) << addr << std::endl;
@@ -32,11 +33,10 @@ void on_shutdown()
 
 int main()
 {
-    utility::string_t port = U("34568");
-
+    utility::string_t port = U("8080");
     utility::string_t address = U("http://localhost:");
     address.append(port);
-
+    
     on_initialize(address);
     std::cout << "Press ENTER to exit." << std::endl;
 
