@@ -21,6 +21,14 @@
 #include <iostream>
 #include <fstream>
 #include <random>
+// #include <mysql_driver.h>
+// #include <mysql_connection.h>
+// #include <mysql_error.h>
+#include <cppconn/driver.h>
+#include <cppconn/statement.h>
+#include <cppconn/resultset.h>
+#include <cppconn/prepared_statement.h>
+
 
 #include "cpprest/json.h"
 #include "cpprest/http_listener.h"
