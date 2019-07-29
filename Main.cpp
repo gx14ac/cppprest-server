@@ -9,9 +9,8 @@ using namespace http::experimental::listener;
 std::unique_ptr<MyServer> g_http;
 
 static const std::string url = "tcp://127.0.0.1:3306";
-static const std::string user = "root";
-static const std::string password = "djgm257890hujm6nvr54hwe";
-
+static const std::string user = "shinta";
+static const std::string password = "a";
 
 void connnect_mysql()
 {
@@ -59,7 +58,8 @@ void connnect_mysql()
     }
     catch (sql::SQLException &e)
     {
-        std::cout << "Error during processing.." << std::endl;
+        std::cout << "Error Description:" << e.what() << std::endl;
+        std::cout << "Error Code: " << e.getSQLState() << std::endl;
     }
 
     return;
@@ -91,7 +91,7 @@ int main()
     utility::string_t port = U("8080");
     utility::string_t address = U("http://localhost:");
     address.append(port);
-    
+    connnect_mysql();
     configuration_db(address);
     std::cout << "Press ENTER to exit." << std::endl;
 

@@ -19,11 +19,12 @@
 #include <algorithm>
 #include <sstream>
 #include <iostream>
+#include <memory>
 #include <fstream>
 #include <random>
-// #include <mysql_driver.h>
-// #include <mysql_connection.h>
-// #include <mysql_error.h>
+#include <mysql_driver.h>
+#include <mysql_connection.h>
+#include <mysql_error.h>
 #include <cppconn/driver.h>
 #include <cppconn/statement.h>
 #include <cppconn/resultset.h>
