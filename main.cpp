@@ -1,5 +1,8 @@
-#include "stdafx.h"
 #include "handler.h"
+#include "cpprest/json.h"
+#include "cpprest/http_listener.h"
+#include "cpprest/uri.h"
+#include "cpprest/asyncrt_utils.h"
 
 using namespace web;
 using namespace http;
