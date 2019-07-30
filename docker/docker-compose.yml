@@ -1,0 +1,12 @@
+version: '3'
+services:
+    db:
+    image: mysql:5.6
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./conf/mysql.cnf:/etc/my.cnf
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: password
+
