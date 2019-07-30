@@ -1,6 +1,15 @@
 #pragma once
-#include "stdafx.h"
 
+#include "cpprest/json.h"
+#include "cpprest/http_listener.h"
+#include "cpprest/uri.h"
+#include "cpprest/asyncrt_utils.h"
+
+using namespace std;
+using namespace web; 
+using namespace utility;
+using namespace http;
+using namespace web::http::experimental::listener;
 
 struct People
 {
