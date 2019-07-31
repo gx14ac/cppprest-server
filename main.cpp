@@ -13,7 +13,7 @@ std::unique_ptr<Handler> g_http;
 
 static const std::string url = "tcp://127.0.0.1:3306";
 static const std::string user = "shinta";
-static const std::string password = "djgm257890hujm6nvr54hwe";
+static const std::string password = "password";
 
 void configuration_handler(const utility::string_t& address)
 {
