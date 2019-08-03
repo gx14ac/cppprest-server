@@ -1,8 +1,9 @@
-#include "handler.h"
-#include "cpprest/json.h"
-#include "cpprest/http_listener.h"
-#include "cpprest/uri.h"
-#include "cpprest/asyncrt_utils.h"
+// Copyright © 2019 netSk8ight. All Rights Reserved. 
+
+#include "handler.hpp"
+#include "mysql.hpp"
+
+#include <memory>
 
 using namespace web;
 using namespace http;
@@ -10,10 +11,11 @@ using namespace utility;
 using namespace http::experimental::listener;
 
 std::unique_ptr<Handler> g_http;
+std::unique_ptr<MySql> db;
 
 static const std::string url = "tcp://127.0.0.1:3306";
 static const std::string user = "shinta";
-static const std::string password = "password";
+static const std::string password = "";
 
 void configuration_handler(const utility::string_t& address)
 {
@@ -38,6 +40,10 @@ void shutdown_handler()
 
 int main()
 {
+    db = std::unique_ptr<MySql>(new MySql(url, user, password));
+    db->connect_db();
+
+
     utility::string_t port = U("8080");
     utility::string_t address = U("http://localhost:");
     address.append(port);
