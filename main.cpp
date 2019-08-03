@@ -5,11 +5,6 @@
 
 #include <memory>
 
-using namespace web;
-using namespace http;
-using namespace utility;
-using namespace http::experimental::listener;
-
 std::unique_ptr<Handler> g_http;
 std::unique_ptr<MySql> db;
 
@@ -42,7 +37,6 @@ int main()
 {
     db = std::unique_ptr<MySql>(new MySql(url, user, password));
     db->connect_db();
-
 
     utility::string_t port = U("8080");
     utility::string_t address = U("http://localhost:");

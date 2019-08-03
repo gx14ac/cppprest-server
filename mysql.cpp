@@ -2,8 +2,6 @@
 
 #include "mysql.hpp"
 
-using namespace sql;
-
 MySql::MySql(std::string arg_url, std::string arg_user, std::string arg_password)
 {
     url = arg_url;
@@ -14,11 +12,13 @@ MySql::MySql(std::string arg_url, std::string arg_user, std::string arg_password
 sql::Connection* MySql::connect_db()
 {
     sql::Driver *driver;
+    sql::Connection *conn;
 
     try
     {
         driver = get_driver_instance();
         conn = driver->connect(url, user, password);
+        std::cout << "Connection of Datebase Succeeded." << endl;
     }
     catch (sql::SQLException &e)
     {

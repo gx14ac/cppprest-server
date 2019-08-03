@@ -9,6 +9,7 @@
 #include <string.h>
 
 using namespace sql;
+using namespace std;
 
 class MySql
 {
@@ -19,7 +20,6 @@ public:
         std::string arg_password
     );
     
-    sql::Connection *conn;
     sql::Connection* connect_db();
     void shutdown_db();
 

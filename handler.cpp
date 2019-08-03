@@ -2,12 +2,6 @@
 
 #include "handler.hpp"
 
-using namespace std;
-using namespace web; 
-using namespace utility;
-using namespace http;
-using namespace web::http::experimental::listener;
-
 Handler::Handler(utility::string_t url) : m_listener(url)
 {
     m_listener.support(methods::GET, std::bind(&Handler::handle_get, this, std::placeholders::_1));
