@@ -1,14 +1,18 @@
+// Copyright © 2019 netSk8ight. All Rights Reserved. 
+
 #include <mysql_driver.h>
 #include <mysql_connection.h>
 #include <mysql_error.h>
 #include <string.h>
-#include "mysql.h"
+#include "mysql.hpp"
 
-MySql::MySql(char *arg_url, char *arg_user, char *arg_password)
+using namespace sql;
+
+MySql::MySql(std::string arg_url, std::string arg_user, std::string arg_password)
 {
-    strcpy(url, arg_url);
-    strcpy(user, arg_user);
-    strcpy(password, arg_password);
+    url = arg_url;
+    user = arg_user;
+    password = arg_password;
 }
 
 sql::Connection* MySql::connect_db()
