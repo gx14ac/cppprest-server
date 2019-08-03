@@ -1,3 +1,4 @@
+# Copyright © 2019 netSk8ight. All Rights Reserved. 
 version: '3'
 services:
     db:
