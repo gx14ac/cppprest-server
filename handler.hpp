@@ -3,6 +3,8 @@
 #ifndef __HANDLER_H__
 #define __HANDLER_H__
 
+#include "messagetypes.hpp"
+
 #include "cpprest/json.h"
 #include "cpprest/http_listener.h"
 #include "cpprest/uri.h"

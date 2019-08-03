@@ -1,9 +1,5 @@
 // Copyright © 2019 netSk8ight. All Rights Reserved. 
 
-#include <mysql_driver.h>
-#include <mysql_connection.h>
-#include <mysql_error.h>
-#include <string.h>
 #include "mysql.hpp"
 
 using namespace sql;

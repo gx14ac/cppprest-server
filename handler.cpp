@@ -1,10 +1,5 @@
 // Copyright © 2019 netSk8ight. All Rights Reserved. 
 
-#include "messagetypes.hpp"
-#include "cpprest/json.h"
-#include "cpprest/http_listener.h"
-#include "cpprest/uri.h"
-#include "cpprest/asyncrt_utils.h"
 #include "handler.hpp"
 
 using namespace std;

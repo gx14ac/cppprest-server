@@ -7,7 +7,6 @@
 #include <mysql_connection.h>
 #include <mysql_error.h>
 #include <string.h>
-#include "mysql.hpp"
 
 using namespace sql;
 
