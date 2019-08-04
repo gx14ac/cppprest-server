@@ -15,15 +15,17 @@ class MySql
 {
 public:
     MySql(
-        std::string arg_url,
-        std::string arg_user,
-        std::string arg_password
+        std::string _url,
+        std::string _user,
+        std::string _password
     );
     
-    sql::Connection* connect_db();
-    void shutdown_db();
+    sql::Connection* connect_db() noexcept;
+    bool shutdown_db() noexcept;
 
 private:
+    sql::Connection *conn;
+    sql::Driver *driver;
     std::string url;
     std::string user;
     std::string password;

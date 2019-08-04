@@ -2,19 +2,16 @@
 
 #include "mysql.hpp"
 
-MySql::MySql(std::string arg_url, std::string arg_user, std::string arg_password)
+MySql::MySql(std::string _url, std::string _user, std::string _password)
 {
-    url = arg_url;
-    user = arg_user;
-    password = arg_password;
-}
+    url = _url;
+    user = _user;
+    password = _password;
+};
 
-sql::Connection* MySql::connect_db()
+sql::Connection* MySql::connect_db() noexcept
 {
-    sql::Driver *driver;
-    sql::Connection *conn;
-
-    try
+    try 
     {
         driver = get_driver_instance();
         conn = driver->connect(url, user, password);
@@ -22,15 +19,25 @@ sql::Connection* MySql::connect_db()
     }
     catch (sql::SQLException &e)
     {
-        std::cout << "Error Description:" << e.what() << std::endl;
-        std::cout << "Error Code: " << e.getSQLState() << std::endl;
+        std::cerr << "Error Description:" << e.what() << '\n';
+        std::cerr << "Error Code: " << e.getSQLState() << '\n';
         exit(1);
     }
     
     return conn;
 };
 
-void MySql::shutdown_db()
+bool MySql::shutdown_db() noexcept
 {
-    return;
+    try
+    {
+        conn->close();
+        driver->threadEnd();
+        return true;
+    }
+    catch(const std::exception &e)
+    {
+        std::cerr << "Error Description:" << e.what() << '\n';
+        return false;
+    }
 };

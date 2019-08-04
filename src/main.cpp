@@ -33,6 +33,18 @@ void shutdown_handler()
     return;
 }
 
+void shutdown_db()
+{
+    if (db->shutdown_db()) {
+        return;        
+    } else {
+        std::cout << "Cannot Close The Database..." << '\n';
+        std::cout << "Forced Termination..." << '\n';
+        exit(1);
+        return;
+    }
+}
+
 int main()
 {
     db = std::unique_ptr<MySql>(new MySql(url, user, password));
@@ -48,5 +60,6 @@ int main()
     std::getline(std::cin, line);
 
     shutdown_handler();
+    shutdown_db();
     return 0;
 }
