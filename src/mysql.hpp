@@ -19,9 +19,11 @@ public:
         std::string _user,
         std::string _password
     );
+    ~MySql();
     
-    sql::Connection* connect_db() noexcept;
+    bool connect_db() noexcept;
     bool shutdown_db() noexcept;
+    sql::Connection* get_db() noexcept;
 
 private:
     sql::Connection *conn;

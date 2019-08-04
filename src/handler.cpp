@@ -9,7 +9,11 @@ Handler::Handler(utility::string_t url) : m_listener(url)
     m_listener.support(methods::POST, std::bind(&Handler::handle_post, this, std::placeholders::_1));
     m_listener.support(methods::DEL, std::bind(&Handler::handle_delete, this, std::placeholders::_1));
    
-}
+};
+
+Handler::~Handler() {
+    std::cout << "destruct Handler" << '\n';
+};
 
 void Handler::handle_get(http_request message)
 {

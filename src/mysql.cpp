@@ -9,22 +9,25 @@ MySql::MySql(std::string _url, std::string _user, std::string _password)
     password = _password;
 };
 
-sql::Connection* MySql::connect_db() noexcept
+MySql::~MySql() {
+    std::cout << "destruct NySql" << '\n';
+};
+
+bool MySql::connect_db() noexcept
 {
     try 
     {
         driver = get_driver_instance();
         conn = driver->connect(url, user, password);
         std::cout << "Connection of Datebase Succeeded." << endl;
+        return true;
     }
     catch (sql::SQLException &e)
     {
         std::cerr << "Error Description:" << e.what() << '\n';
         std::cerr << "Error Code: " << e.getSQLState() << '\n';
-        exit(1);
+        return false;
     }
-    
-    return conn;
 };
 
 bool MySql::shutdown_db() noexcept
@@ -41,3 +44,8 @@ bool MySql::shutdown_db() noexcept
         return false;
     }
 };
+
+sql::Connection* MySql::get_db() noexcept
+{
+    return conn;   
+}

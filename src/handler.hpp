@@ -21,6 +21,7 @@ class Handler
 public:
 	Handler() {}
 	Handler(utility::string_t url);
+	~Handler();
 
 	pplx::task<void> open() { return m_listener.open(); }
 	pplx::task<void> close() { return m_listener.close(); }
