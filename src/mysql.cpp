@@ -2,6 +2,9 @@
 
 #include "mysql.hpp"
 
+using namespace sql;
+using namespace std;
+
 MySql::MySql(std::string _url, std::string _user, std::string _password)
 {
     url = _url;

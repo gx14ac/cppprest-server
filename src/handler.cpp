@@ -2,6 +2,9 @@
 
 #include "handler.hpp"
 
+using namespace std;
+using namespace utility;
+
 Handler::Handler(utility::string_t url) : m_listener(url)
 {
     m_listener.support(methods::GET, std::bind(&Handler::handle_get, this, std::placeholders::_1));
