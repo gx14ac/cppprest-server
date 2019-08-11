@@ -6,7 +6,7 @@
 #include <mysql_driver.h>
 #include <mysql_connection.h>
 #include <mysql_error.h>
-#include <string.h>
+#include <string>
 
 using namespace sql;
 using namespace std;

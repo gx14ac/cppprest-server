@@ -12,8 +12,9 @@ MySql::MySql(std::string _url, std::string _user, std::string _password)
     password = _password;
 };
 
-MySql::~MySql() {
-    std::cout << "destruct NySql" << '\n';
+MySql::~MySql()
+{
+    std::cout << "destruct MySql" << '\n';
 };
 
 bool MySql::connect_db() noexcept
