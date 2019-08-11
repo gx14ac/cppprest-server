@@ -14,7 +14,8 @@ Handler::Handler(utility::string_t url) : m_listener(url)
    
 };
 
-Handler::~Handler() {
+Handler::~Handler()
+{
     std::cout << "destruct Handler" << '\n';
 };
 
