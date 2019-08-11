@@ -21,7 +21,7 @@ public:
     );
     ~Env();
     
-    char*  get_mysql_host();
+    char* get_mysql_host();
     char* get_mysql_port();
     char* get_mysql_user();
     char* get_mysql_password();
