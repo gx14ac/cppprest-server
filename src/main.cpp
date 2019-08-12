@@ -8,7 +8,6 @@
 
 std::unique_ptr<Handler> handler;
 std::shared_ptr<MySql> db;
-std::shared_ptr<Config> conf;
 
 void startup_handler(std::shared_ptr<Env> env)
 {
@@ -64,7 +63,7 @@ int main()
     Config conf;
     startup_db(conf.get_env());
     startup_handler(conf.get_env());
-    
+
     std::cout << "Press ENTER to exit." << std::endl;
     std::string line;
     std::getline(std::cin, line);
