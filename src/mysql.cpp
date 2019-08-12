@@ -52,4 +52,4 @@ bool MySql::shutdown_db() noexcept
 sql::Connection* MySql::get_db() noexcept
 {
     return conn;   
-}
+};
