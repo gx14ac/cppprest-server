@@ -65,7 +65,7 @@ void Handler::handle_put(http_request message)
 
 		message.reply(status_codes::OK, data.AsJSON());
 		return;
-	}
+	};
 
 	message.reply(status_codes::OK);
 };
