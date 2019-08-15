@@ -9,8 +9,6 @@
 #include <iostream>
 #include <memory>
 
-using namespace std;
-
 class Config
 {
 public:
