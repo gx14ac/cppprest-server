@@ -8,9 +8,6 @@
 #include <mysql_error.h>
 #include <string>
 
-using namespace sql;
-using namespace std;
-
 class MySql
 {
 public:
