@@ -23,7 +23,7 @@ bool MySql::connect_db() noexcept
     {
         driver = get_driver_instance();
         conn = driver->connect(url, user, password);
-        std::cout << "Connection of Datebase Succeeded." << endl;
+        std::cout << "Connection of Datebase Succeeded." << '\n';
         return true;
     }
     catch (sql::SQLException &e)
