@@ -1,35 +1,35 @@
 // Copyright © 2019 netSk8ight. All Rights Reserved. 
 
-#include "handler.hpp"
+#include "router.hpp"
 #include "mysql.hpp"
 #include "config.hpp"
 
 #include <memory>
 
-std::unique_ptr<Handler> handler;
+std::unique_ptr<Router> router;
 std::shared_ptr<MySql> db;
 
-void startup_handler(std::shared_ptr<Env> env)
+void open_router(std::shared_ptr<Env> env)
 {
     utility::string_t port = U(env->get_app_port());
     utility::string_t address = U(env->get_app_host());
     address.append(port);
-    uri_builder uri(address);
-    uri.append_path(U("api/v1/"));
+    web::uri_builder uri(address);
+    uri.append_path(U("api/v1"));
 
     auto addr = uri.to_uri().to_string();
-	handler = std::unique_ptr<Handler>(new Handler(addr));
+	router = std::unique_ptr<Router>(new Router(addr));
 
-	handler->open().wait();
+	router->open();
     
-    ucout << utility::string_t(U("Listening for requests at: ")) << addr << std::endl;
+    ucout << utility::string_t(U("Listening for requests at: ")) << addr << '\n';
 
     return;
 };
 
-void shutdown_handler()
+void close_router()
 {
-	handler->close().wait();
+	router->close();
     return;
 };
 
@@ -62,13 +62,13 @@ int main()
 {
     Config conf;
     startup_db(conf.get_env());
-    startup_handler(conf.get_env());
+    open_router(conf.get_env());
 
-    std::cout << "Press ENTER to exit." << std::endl;
+    std::cout << "Press ENTER to exit." << '\n';
     std::string line;
     std::getline(std::cin, line);
 
-    shutdown_handler();
+    close_router();
     shutdown_db();
 
     return 0;
