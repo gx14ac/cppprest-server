@@ -4,8 +4,6 @@
 #include "mysql.hpp"
 #include "config.hpp"
 
-#include <memory>
-
 std::unique_ptr<Router> router;
 std::shared_ptr<MySql> db;
 
