@@ -4,11 +4,7 @@
 #define __ROUTER_H__
 
 #include "mysql.hpp"
-
-#include <cpprest/json.h>
-#include <cpprest/http_listener.h>
-#include <cpprest/uri.h>
-#include <cpprest/asyncrt_utils.h>
+#include "ping.hpp"
 
 class Router
 {
@@ -17,8 +13,12 @@ public:
     Router(utility::string_t url);
     ~Router();
 
+    void open();
+    void close();
+
 private:
-	web::http::experimental::listener::http_listener m_listener;
+    std::unique_ptr<Ping> ping;
+    
 };
 
 #endif /* __ROUTER_H__ */
