@@ -35,3 +35,6 @@ relative/path/to/dir/anotherfile
 
 # Ignore `.envrc` file
 *.envrc
+
+# Ignore `.o`
+*.o
