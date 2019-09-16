@@ -10,9 +10,15 @@ using namespace web::http::experimental::listener;
 
 Router::Router(utility::string_t url)
 {
+    user = std::unique_ptr<User>(
+        new User(
+            url
+        )
+    );
+    
     ping = std::unique_ptr<Ping>(
         new Ping(
-            url.append("/ping")
+            url
         )
     );
 };
@@ -24,10 +30,12 @@ Router::~Router()
 
 void Router::open()
 {
+    user->open().wait();
     ping->open().wait();
 };
 
 void Router::close()
 {
+    user->close().wait();
     ping->close().wait();
 }
