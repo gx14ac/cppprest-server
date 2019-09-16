@@ -5,6 +5,7 @@
 
 #include "mysql.hpp"
 #include "ping.hpp"
+#include "user.hpp"
 
 class Router
 {
@@ -18,7 +19,7 @@ public:
 
 private:
     std::unique_ptr<Ping> ping;
-    
+    std::unique_ptr<User> user;
 };
 
 #endif /* __ROUTER_H__ */
